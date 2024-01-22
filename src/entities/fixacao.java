@@ -22,10 +22,9 @@ public class fixacao {
     }
 
     public String toString(){
-        return "Updated account data:"
-                + getAccountCode()
+        return  getAccountCode()
                 + ", holder: "
                 + name + ", balance: $ "
-                + balance;
+                + String.format("%.2f,",balance);
     }
 }
