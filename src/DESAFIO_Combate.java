@@ -10,7 +10,7 @@ public class DESAFIO_Combate {
 
 
         System.out.println("Digite os dados do primeiro campeão: ");
-        System.out.print("Nome:");
+        System.out.print("Nome: ");
         String name = sc.nextLine();
         System.out.print("Vida inicial: ");
         int initialLife = sc.nextInt();
@@ -20,7 +20,7 @@ public class DESAFIO_Combate {
         int armor = sc.nextInt();
 
         System.out.println("Digite os dados do segundo campeão: ");
-        System.out.println("Nome: ");
+        System.out.print("Nome: ");
         sc.nextLine();
         String name2 = sc.nextLine();
         System.out.print("Vida inicial: ");
@@ -31,16 +31,25 @@ public class DESAFIO_Combate {
         int armor2 = sc.nextInt();
 
         Champion champion = new Champion(name,initialLife,attack,armor);
+        Champion champion2 = new Champion(name2,initialLife2,attack2,armor2);
 
         System.out.print("quantos turnos você deseja executar? ");
         int x = sc.nextInt();
         System.out.println();
-        for (int l = 1 ; l <= x ; l++){
-            System.out.println("resultado do turno "+ l);
-            System.out.println();
-            System.out.println(Champion.status);
-        }
+        for (int l = 1 ;champion2.getLife() > 0 && champion.getLife() > 0 &&  l <= x; l++){
 
+            champion.takeDamage(champion2);
+            champion2.takeDamage(champion);
+
+            System.out.println("resultado do turno " + l);
+
+            System.out.println();
+
+            System.out.println(champion.status());
+            System.out.println(champion2.status());
+            System.out.println();
+        }
+        System.out.println();
         System.out.println("FIM DO COMBATE");
 
     }

@@ -46,16 +46,18 @@ public class Champion {
     }
 
     public void takeDamage(Champion other){
-        life -= other.getAttack()-armor;
+        if(other.getAttack()-armor>0){
+            life -= other.getAttack()-armor;
+        } else {
+            life -= 1;
+        }
     }
 
     public String status(){
-        if(life!=0) {
-            return getName() + ": " +
-                    getLife() + "de vida";
+        if(getLife()>0) {
+            return getName() + ": " + getLife() + " de vida";
         }else{
-            return getName() + ": " + getLife() + "de vida (morreu)";
+            return getName() + ": " + "0 de vida (morreu)";
         }
-
     }
 }
